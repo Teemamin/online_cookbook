@@ -1,6 +1,15 @@
 {% extends 'base.html' %} {% block content %}
      <!-- Page Content -->
-     <h3>from home</h3>
+         {% with messages = get_flashed_messages() %}
+             {% if messages %}
+                {%for msg in messages%}
+                   <p>{{msg}}</p>
+                {% endfor%}
+              {% endif %}
+        {% endwith %}
+           
+ 
+
       <div class="container">
         <div class="row">
           <div class="col-lg-3">
