@@ -15,12 +15,16 @@
   </div>
 </div>
 <div class="container">
-  <form action="{{url_for('input_recipe')}}" method="POST">
+  <form action="{{url_for('update_recipe',recipe_id=recipe._id)}}" method="POST">
     <div class="form-group">
     <select class="custom-select" name="category_name">
       <option selected>Select category</option>
       {% for cat in categories %}
-      <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+       {% if cat.category_name == recipe.category_name %}
+        <option value="{{cat.category_name}}" selected>{{cat.category_name}}</option>
+        {% else %}
+        <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+       {% endif%} 
       {% endfor %}
     </select>
     </div>
@@ -31,6 +35,7 @@
         class="form-control"
         id="recipe_image"
         name="recipe_image"
+        value="{{recipe.recipe_image}}"
         aria-describedby=""
       />
     </div>
@@ -41,6 +46,7 @@
         class="form-control"
         id="recipe_title"
         name="recipe_title"
+        value={{recipe.recipe_title}}
         aria-describedby=""
       />
     </div>
@@ -52,7 +58,7 @@
         id="description"
         name="description"
         rows="3"
-      ></textarea>
+      >{{recipe.description}}</textarea>
     </div>
     <div class="form-group ">
       <label for="ingredients">Ingredients</label>
@@ -62,7 +68,7 @@
         placeholder="input each ingredient on a new line"
         name="ingredients"
         rows="3"
-      ></textarea>
+      >{{recipe.ingredients}}</textarea>
     </div>
 
     <div class="form-group">
@@ -73,7 +79,7 @@
         placeholder="input each step in a new line"
         name="steps"
         rows="3"
-      ></textarea>
+      >{{recipe.steps}}</textarea>
     </div>
     <div class="form-group">
       <input
