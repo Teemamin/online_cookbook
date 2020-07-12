@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% block content %}
+     <!-- Page Content -->
+         {% with messages = get_flashed_messages() %}
+             {% if messages %}
+                {%for msg in messages%}
+                   <p>{{msg}}</p>
+                {% endfor%}
+              {% endif %}
+        {% endwith %}
+           
+ 
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+    
+            <div class="list-group">
+              <a href="#" class="list-group-item">Category 1</a>
+              <a href="#" class="list-group-item">Category 2</a>
+              <a href="#" class="list-group-item">Category 3</a>
+            </div>
+            
+          </div>
+          <!-- /.col-lg-3 -->
+
+          <div class="col-lg-9">
+            
+    
+            <div class="row">
+            
+            {% for recipe in recipes%}
+
+              
+              <div class="col-lg-4 col-md-6 mb-4">
+              
+                <div class="card h-100">
+                
+                  <a href="#"
+                    ><img
+                      class="card-img-top"
+                      src="{{recipe.recipe_image}}"
+                      alt=""
+                  /></a>
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <a href="#">{{recipe.recipe_title}}</a>
+                    </h4>
+                    
+                    <p class="card-text">
+                      {{recipe.recipe_description}}
+                    </p>
+                    <h6>Recipe by :<small> {{recipe.recipe_owner}}</small></h6>
+                  </div>
+                  <div class="card-footer">
+                     <a href="{{url_for('get_recipe', recipe_id=recipe._id)}}" class="btn btn-primary">View Recipe</a>
+                  </div>
+               
+                </div>
+              
+              </div>
+            {% endfor %}
+
+           
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.col-lg-9 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+{% endblock%}
