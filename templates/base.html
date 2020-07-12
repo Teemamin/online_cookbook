@@ -70,7 +70,11 @@
               </li>
             </ul>
           </div>
-          <form method="GET" action="{{url_for('search')}}" class="form-inline my-2 my-lg-0">
+          <form
+            method="GET"
+            action="{{url_for('search')}}"
+            class="form-inline my-2 my-lg-0"
+          >
             <input
               class="form-control mr-sm-2"
               type="search"
@@ -78,7 +82,11 @@
               aria-label="Search"
               name="search"
             />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            <button
+              id="demo"
+              class="btn btn-outline-success my-2 my-sm-0"
+              type="submit"
+            >
               Search
             </button>
           </form>
@@ -88,7 +96,6 @@
       <div class="container">
         {%block content%} {% endblock %}
       </div>
-
       <!-- Footer -->
       <footer class="py-5 bg-dark">
         <div class="container">
@@ -99,6 +106,7 @@
         <!-- /.container -->
       </footer>
 
+      <script src="/static/js/main.js"></script>
       <!-- Bootstrap core JavaScript -->
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -108,6 +116,18 @@
       <script type="text/javascript">
         $(document).ready(function () {
           $(".summernote").summernote();
+        });
+
+        $(".summernote").summernote({
+          toolbar: [
+            // [groupName, [list of button]]
+            ["style", [ "italic",  "clear"]],
+            //["font", ["strikethrough"]],
+            //["fontsize", ["fontsize"]],
+            //["color", ["color"]],
+            ["para", ["ul", "paragraph"]],
+            //["height", ["height"]],
+          ],
         });
       </script>
     </div>
