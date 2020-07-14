@@ -1,4 +1,6 @@
 function check() {
-    return alert("are you sure you want to delete?");
+    return confirm("are you sure you want to delete?");
     
 }
+
+$('.carousel').carousel()

@@ -7,17 +7,27 @@
              <div class="col-lg-3">
     
             <div class="list-group">
-              <a href="#" class="list-group-item">Deserts</a>
-              <a href="#" class="list-group-item">Main Dishes</a>
-              <a href="#" class="list-group-item">Drinks</a>
+               <a href="{{url_for('desert')}}" class="list-group-item">Deserts</a>
+              <a href="{{url_for('main_dishes')}}" class="list-group-item">Main Dishes</a>
+              <a href="{{url_for('drinks')}}" class="list-group-item">Drinks</a>
             </div>
             
           </div>
-                <div class="col-8">
+                <div class="col-5">
                     <div class="receipe-slider owl-carousel">
                         <img class="recipe_image img-thumbnail" src="{{recipes.recipe_image|safe}}" alt="">
                     </div>
+                    
                 </div>
+                <div class="col-lg-3">
+    
+            <div class="list-group">
+              <p class="list-group-item">Prep time: {{recipes.prep_time|safe}}</p>
+              <p class="list-group-item">Cook time: {{recipes.cook_time|safe}}</p>
+              <p class="list-group-item">servings: {{recipes.servings|safe}}</p>
+            </div>
+            
+          </div>
             </div>
         </div>
        <div class="container">
@@ -65,7 +75,7 @@
                         </div>
                    
                     </div>
-
+                  
                     <!-- Ingredients -->
                     <div class="col-12 col-lg-4">
                         <div class="ingredients">
@@ -79,6 +89,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
       </div>

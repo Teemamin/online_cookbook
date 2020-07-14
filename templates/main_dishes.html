@@ -36,7 +36,7 @@
               
                 <div class="card h-100">
                 
-                  <a href="#"
+                  <a href="{{url_for('get_recipe', recipe_id=recipe._id)}}"
                     ><img
                       class="card-img-top"
                       src="{{recipe.recipe_image}}"
@@ -44,7 +44,7 @@
                   /></a>
                   <div class="card-body">
                     <h4 class="card-title">
-                      <a href="#">{{recipe.recipe_title}}</a>
+                      <a href="{{url_for('get_recipe', recipe_id=recipe._id)}}">{{recipe.recipe_title}}</a>
                     </h4>
                     
                     <p class="card-text">
