@@ -8,15 +8,13 @@
               {% endif %}
         {% endwith %}
 
-<form action="{{url_for('register')}}" method="POST">
-  <div class="form-group">
-    <label for="recipe_owner">signup</label>
-    <input type="text" class="form-control" id="recipe_owner" name="recipe_owner" aria-describedby="">
-    <small id="emailHelp" class="form-text text-muted">already registered? <a href="#">login</a></small>
-  </div>
-  
-  
-  <button type="submit" class="btn btn-primary">Register</button>
-</form>
+  <form action="{{url_for('register')}}" method="POST">
+    <div class="form-group">
+        <label for="recipe_owner">signup</label>
+        <input type="text" class="form-control" id="recipe_owner" name="recipe_owner" aria-describedby="">
+            <small id="emailHelp" class="form-text text-muted">already registered? <a href="{{url_for('login')}}">login</a></small>
+    </div> 
+  <button type="submit" class="btn bg_cl">Register</button>
+ </form>
 {% endblock %}
 

@@ -1,9 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<div
-  class="breadcumb-area bg-img bg-overlay"
-  style="background-image: url(static/img/breadcumb3.jpg);"
->
+<div class="breadcumb-area bg-img bg-overlay"   id="form-bg">
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12">
@@ -17,114 +14,53 @@
 <div class="container">
   <form action="{{url_for('update_recipe',recipe_id=recipe._id)}}" method="POST">
     <div class="form-group">
-    <select class="custom-select" name="category_name">
-      <option selected>Select category</option>
+        <select class="custom-select" name="category_name" required>
+            <option selected>Select category</option>
       {% for cat in categories %}
        {% if cat.category_name == recipe.category_name %}
-        <option value="{{cat.category_name}}" selected>{{cat.category_name}}</option>
+            <option value="{{cat.category_name}}" selected>{{cat.category_name}}</option>
         {% else %}
-        <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+            <option value="{{cat.category_name}}">{{cat.category_name}}</option>
        {% endif%} 
       {% endfor %}
-    </select>
+      </select>
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Image url</label>
-      <input
-        type="text"
-        class="form-control"
-        id="recipe_image"
-        name="recipe_image"
-        value="{{recipe.recipe_image}}"
-        aria-describedby=""
-      />
+      <label for="recipe_image">Image url</label>
+      <input type="url" class="form-control" id="recipe_image" name="recipe_image" value="{{recipe.recipe_image}}" aria-describedby="" required/>
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Recipe Title</label>
-      <input
-        type="text"
-        class="form-control"
-        id="recipe_title"
-        name="recipe_title"
-        value={{recipe.recipe_title}}
-        aria-describedby=""
-      />
-    </div>
-
+      <label for="recipe_title">Recipe Title</label>
+      <input type="text" class="form-control" id="recipe_title" name="recipe_title" value = "{{recipe.recipe_title}}" aria-describedby="" required/>
+    </div> 
     <div class="form-group">
       <label for="description">Brief description</label>
-      <textarea
-        class="form-control"
-        id="description"
-        name="description"
-        rows="3"
-      >{{recipe.description}}</textarea>
+      <textarea class="form-control" id="description" name="description" rows="3" required>{{recipe.description}}</textarea>
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Prep time</label>
-      <input
-        type="text"
-        class="form-control"
-        id="prep_time"
-        name="prep_time"
-        value={{recipe.prep_time}}
-        aria-describedby=""
-      />
+      <label for="prep_time">Prep time</label>
+      <input type="text" class="form-control" id="prep_time" name="prep_time" value= "{{recipe.prep_time}} " aria-describedby="" required/>
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Cook TIme</label>
-      <input
-        type="text"
-        class="form-control"
-        id="cook_time"
-        name="cook_time"
-        value={{recipe.cook_time}}
-        aria-describedby=""
-      />
+      <label for="cook_time">Cook TIme</label>
+      <input type="text" class="form-control" id="cook_time" name="cook_time" value= "{{recipe.cook_time}}" aria-describedby="" required/>
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Servings</label>
-      <input
-        type="text"
-        class="form-control"
-        id="servings"
-        name="servings"
-        value={{recipe.servings}}
-        aria-describedby=""
-      />
+      <label for="servings">Servings</label>
+      <input type="text" class="form-control" id="servings" name="servings" value="{{recipe.servings}}" aria-describedby="" required/>
     </div>
     <div class="form-group ">
-      <label for="ingredients">Ingredients</label>
-      <textarea 
-        class="form-control summernote"
-        id=""
-        placeholder="input each ingredient on a new line"
-        name="ingredients"
-        rows="3"
-      >{{recipe.ingredients}}</textarea>
-    </div>
-
+      <label for="">Ingredients</label>
+      <textarea class="form-control summernote" id="" placeholder="input each ingredient on a new line" name="ingredients" rows="3" required>{{recipe.ingredients}}</textarea>
+    </div> 
     <div class="form-group">
-      <label for="steps">steps</label>
-      <textarea
-        class="form-control summernote"
-        id=""
-        placeholder="input each step in a new line"
-        name="steps"
-        rows="3"
-      >{{recipe.steps}}</textarea>
+      <label for="">steps</label>
+      <textarea class="form-control summernote" id="" placeholder="input each step in a new line" name="steps" rows="3" required>{{recipe.steps}}</textarea>
     </div>
     <div class="form-group">
-      <input
-        type="hidden"
-        class="form-control"
-        id="date_created"
-        name="date_created"
-        aria-describedby=""
-      />
-    </div>
-
-    <button type="submit" class="btn btn-primary">
+      <input type="hidden" class="form-control" id="date_created" name="date_created" aria-describedby="" />
+    </div> 
+    <button type="submit" class="btn bg_cl">
       Update Recipe
     </button>
   </form>

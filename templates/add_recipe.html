@@ -1,9 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<div
-  class="breadcumb-area bg-img bg-overlay"
-  style="background-image: url(static/img/breadcumb3.jpg);"
->
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(static/img/breadcumb3.jpg);">
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12">
@@ -25,75 +22,45 @@
     </select>
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Image url</label>
-      <input
-        type="text"
-        class="form-control"
-        id="recipe_image"
-        name="recipe_image"
-        aria-describedby=""
-        required
-      />
+      <label for="recipe_image">Image url</label>
+      <input type="url" class="form-control" id="recipe_image" name="recipe_image" aria-describedby="" required/>
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Recipe Title</label>
-      <input
-        type="text"
-        class="form-control"
-        id="recipe_title"
-        name="recipe_title"
-        aria-describedby=""
-        required
-      />
-    </div>
-
+      <label for="recipe_title">Recipe Title</label>
+      <input type="text" class="form-control" id="recipe_title" name="recipe_title" aria-describedby="" required/>
+    </div> 
     <div class="form-group">
       <label for="description">Brief description</label>
-      <textarea
-        class="form-control"
-        id="description"
-        name="description"
-        rows="2"
-        required
-      ></textarea>
+      <textarea class="form-control" id="description" name="description" rows="2" required></textarea>
     </div>
+    <div class="form-group">
+      <label for="prep_time">Prep Time</label>
+      <input type="text" class="form-control" id="prep_time" name="prep_time" aria-describedby="" required/>
+    </div> 
+    <div class="form-group">
+      <label for="cook_time">Cook Time</label>
+      <input type="text" class="form-control" id="cook_time" name="cook_time" aria-describedby="" required/>
+    </div>
+    <div class="form-group">
+      <label for="servings">Servings</label>
+      <input type="text" class="form-control" id="servings" name="servings" aria-describedby="" required/>
+    </div>  
     <div class="form-group ">
       <label for="ingredients">Ingredients</label>
-      <textarea 
-        class="form-control summernote"
-        id=""
-        placeholder="input each ingredient on a new line"
-        name="ingredients"
-        rows="3"
-        required
-      ></textarea>
-    </div>
-
+      <textarea class="form-control summernote" id="" placeholder="input each ingredient on a new line" name="ingredients" rows="3" required></textarea>
+    </div> 
     <div class="form-group">
       <label for="steps">steps</label>
-      <textarea
-        class="form-control summernote"
-        id=""
-        placeholder="input each step in a new line"
-        name="steps"
-        rows="3"
-        required
-      ></textarea>
+      <textarea class="form-control summernote" id="" placeholder="input each step in a new line" name="steps"  rows="3" required></textarea>
     </div>
     <div class="form-group">
-      <input
-        type="hidden"
-        class="form-control"
-        id="date_created"
-        name="date_created"
-        aria-describedby=""
-      />
-    </div>
-
-    <button type="submit" class="btn btn-primary">
+      <input type="hidden" class="form-control" id="date_created" name="date_created" aria-describedby=""/>
+    </div> 
+    <button type="submit" class="btn bg_cl">
       Add to our recipe collections
     </button>
   </form>
 </div>
+
 
 {% endblock%}

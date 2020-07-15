@@ -1,13 +1,51 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,400,500,600,700|Great+Vibes|Raleway|Dancing+Script&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,400,500,600,700|Great+Vibes|Raleway|Dancing+Script&display=swap");
 
-body{
-    font-family: 'Raleway', sans-serif;
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+}
+.recipe_image {
+  max-height: 700px;
+}
+.custom-select {
+  font-size: 15px;
+  margin-top: 5px;
+}
+#form-bg {
+  background-image: url("/static/img/breadcumb3.jpg");
+}
+
+.bg_cl {
+  background-color: #292c33;
+  color: whitesmoke;
+}
+a {
+  color: darkslateblue;
+}
+.btn:hover {
+  color: wheat!important;
+}
+
+#search_btn{
+    color: antiquewhite;
+}
+.cookware_headings{
     font-size: 16px;
 }
-.recipe_image{
-    max-height: 700px;
+
+#footer {
+  margin-top: 10px;
 }
-.custom-select{
-    font-size: 15px;
-    margin-top: 5px
+/**
+.btn-outline-success {
+    color: rebeccapurple !important;
+    border-color: rebeccapurple !important!;
 }
+.btn.focus, .btn:focus, .btn:hover {
+    color: #333;
+    text-decoration: none;
+}
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #ccb4e3;
+     border-color: #28a745; } */
