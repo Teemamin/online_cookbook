@@ -2,64 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="{{url_for('static',filename='css/shop-homepage.css.')}}"
-    />
-    <link
-      href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}"
-      rel="stylesheet"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"/>
     <!-- include libraries(bootstrap) -->
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- include summernote css/js -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{url_for('static',filename='css/main.css')}}"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}"/>
     <title>Base</title>
   </head>
 
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid" id="height-con">
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-dark bg_cl fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="{{url_for('home')}}"
-            >Susu's online-cookbook</a
-          >
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarResponsive"
-            aria-controls="navbarResponsive"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+          <a class="navbar-brand" href="{{url_for('home')}}">Susu's online-cookbook</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('home')}}"
-                  >Home
+                <a class="nav-link" href="{{url_for('home')}}">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{url_for('login_page')}}"
-                  >Add Recipe</a
-                >
+                <a class="nav-link" href="{{url_for('login_page')}}">Add Recipe</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{url_for('cookware')}}">Cookware</a>
@@ -69,24 +41,9 @@
               </li>
             </ul>
           </div>
-          <form
-            method="GET"
-            action="{{url_for('search')}}"
-            class="form-inline my-2 my-lg-0"
-          >
-            <input
-              class="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              name="search"
-              required
-            />
-            <button
-              id="search_btn"
-              class="btn  my-2 my-sm-0"
-              type="submit"
-            >
+          <form method="GET" action="{{url_for('search')}}" class="form-inline my-2 my-lg-0" >
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" required />
+            <button id="search_btn" class="btn  my-2 my-sm-0" type="submit">
               Search
             </button>
           </form>
@@ -96,16 +53,32 @@
       <div class="container">
         {%block content%} {% endblock %}
       </div>
-      <!-- Footer -->
-      <footer id="footer" class="py-5 bg_cl">
+    </div>
+    <div class="container-fluid">
+          <!-- Footer -->
+      <footer id="footer" class="bg_cl">
         <div class="container">
-          <p class="m-0 text-center text-white">
-            Copyright &copy; Your Website 2020
-          </p>
+           <div class="row no-gutters footer-align">
+            <div class="col-sm-6">
+                <h5 class="social-heading">Get social with us!</h5>
+                <ul class="list-in-line social-links">
+                    <li class="list-inline-item"><a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-square" aria-hidden="true"></i><span class="sr-only">facebook</span></a></li>
+                    <li class="list-inline-item"><a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i><span class="sr-only">instagram</span></a></li>
+                    <li class="list-inline-item"><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter-square" aria-hidden="true"></i><span class="sr-only">twitter</span></a></li>
+                    <li class="list-inline-item"><a href= "https://www.youtube.com/" target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i><span class="sr-only">youtube</span></a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <h5 class="footer-contact"> Contact us !</h5>
+                <a class="contact-link" href="tel:800(800-40009)/">Call us:&nbsp;<span>800-online-cookbook (800-00000)&lrm;</span></a> 
+                <a class="contact-link" href="mailto:teemamin@yahoo.com">Write to us</a>
+            </div>
+        </div>
         </div>
         <!-- /.container -->
       </footer>
-      <!--my script-->
+     </div>
+     <!--my script-->
       <script src="/static/js/main.js"></script>
       <!-- Bootstrap core JavaScript -->
       <script src="/static/vendor/jquery/jquery.min.js"></script>
@@ -118,17 +91,11 @@
           $(".summernote").summernote();
         });
         $(".summernote").summernote({ 
-          toolbar: [
-            // [groupName, [list of button]]
-            ["style", ["bold", "italic", "underline", "clear"]],
-            //["font", ["strikethrough", "superscript", "subscript"]],
-            //["fontsize", ["fontsize"]],
-           // ["color", ["color"]],
-            ["para", ["ul"]],
-           // ["height", ["height"]],
+          toolbar: [ 
+            ["style", ["bold", "italic", "underline", "clear"]],   
+            ["para", ["ul"]], 
           ],
         });
-      </script>
-    </div>
+      </script> 
   </body>
 </html>

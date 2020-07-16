@@ -32,20 +32,58 @@ a {
 .cookware_headings{
     font-size: 16px;
 }
-
+#height-con{
+    min-height: 670px;
+}
 #footer {
   margin-top: 10px;
 }
-/**
-.btn-outline-success {
-    color: rebeccapurple !important;
-    border-color: rebeccapurple !important!;
-}
-.btn.focus, .btn:focus, .btn:hover {
-    color: #333;
+
+.footer-link a {
     text-decoration: none;
+    color: whitesmoke;
+   
 }
-.btn-outline-success:hover {
-    color: #fff;
-    background-color: #ccb4e3;
-     border-color: #28a745; } */
+ .social-links li a i { 
+   
+    width: 30px;
+    height:30px;
+    padding: 12px 0;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 7px;
+    text-align: center;
+    color: antiquewhite;
+    background-color: #292c33;
+    transition: all .40s ease-in-out;
+    -webkit-transition: all .40s ease-in-out;
+    -moz-transition: all .40s ease-in-out;
+    -o-transition: all .40s ease-in-out;
+
+}
+.social-links li a i:hover{
+    background-color: darkslateblue;
+} 
+a.contact-link{
+    margin-bottom: 5%;
+    color: antiquewhite;
+}
+a.contact-link :hover{
+    color: wheat;  
+ }
+
+ .footer-contact{
+     text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+    margin: 20px;
+
+ }
+ 
+ .social-heading{
+     margin-left: 10%;
+ }
+
+ 
+
+
