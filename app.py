@@ -19,17 +19,23 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route("/home")
 def home():
-    return render_template("index.html", recipes=mongo.db.recipe_collections.find())
+    """renders home page and gets all the recipe collection from mongodb""" 
+    recipes=mongo.db.recipe_collections.aggregate([{'$sort':{'date_created':-1}}])
+    return render_template("index.html", recipes = recipes) 
 
 
 @app.route("/login_page")
 def login_page():
+    """gets the recipe owner collection from mongodb and renders the login html page"""
     username = mongo.db.recipe_owner.find()
     return render_template("login.html", user=username)
 
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
+    """gets the recipe owner collection from mongodb and checks if the username being 
+    submited is in the collection,if so,that user becomes the session user else it will
+    redirect to regiseration page"""
     user = mongo.db.recipe_owner
     login_user = user.find_one(
         {"recipe_owner_name": request.form["recipe_owner"]})
@@ -42,6 +48,9 @@ def login():
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
+    """renders register html page,if request is post: gets the recipe owner collection from mogodb 
+    and checks if the name being submitted does not exist then it adds to the collection else if 
+    the name already exist,it redirects to login page"""
     if request.method == "POST":
         users = mongo.db.recipe_owner
         existing_user = users.find_one(
@@ -49,6 +58,7 @@ def register():
         if existing_user is None:
             users.insert({"recipe_owner_name": request.form["recipe_owner"]})
             session["user"] = request.form["recipe_owner"]
+            flash("successfully registered")
             return redirect(url_for("home"))
         flash("username already exist")
         return redirect(url_for("login_page"))
@@ -66,12 +76,16 @@ def logout():
 
 @app.route("/addrecipe")
 def addrecipe():
+    """gets the categories collection from mongodb and renders add recipe page"""
     all_categories = mongo.db.categories.find()
     return render_template("add_recipe.html", categories=all_categories)
 
 
 @app.route("/input_recipe", methods=["POST", "GET"])
 def input_recipe():
+    """gets the recipe collection from mongodb and if request is post
+    insert the form content to the recipe collection and redirect to
+    home"""
     recipe = mongo.db.recipe_collections
     if request.method == 'POST':
         recipe.insert({
@@ -87,12 +101,16 @@ def input_recipe():
             'recipe_image': request.form.get('recipe_image'),
             'date_created': datetime.now()
         })
-
+    flash("recipe added successfully!")
     return redirect(url_for("home"))
 
 
 @app.route("/get_recipe/<recipe_id>")
 def get_recipe(recipe_id):
+    """takes the parameter from the route,gets the recipe collection from mongodb,
+    and checks for the id passed in the parameter.gets the recipe owner collection
+    from mongodb and renders the get recipe page lastly passes the mongo collections to be used
+    in the frontend"""
     the_recipe = mongo.db.recipe_collections.find_one(
         {"_id": ObjectId(recipe_id)})
     the_recipe_owner = mongo.db.recipe_owner.find()
@@ -101,6 +119,11 @@ def get_recipe(recipe_id):
 
 @app.route("/editrecipe/<recipe_id>")
 def edit_recipe(recipe_id):
+    """takes the parameter passed in the route,gets the recipe collection
+    from mongodb,checks if the recipe owner name matches the username in seesion,if so 
+    renders edit recipe page pre populated with the data.gets the categories collection from mongodb
+    else it will redirect to home page and flash a message, that means you are not the recipe owner"""
+
     recipe = mongo.db.recipe_collections.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find()
     if recipe['recipe_owner'] == session["user"]:
@@ -112,6 +135,8 @@ def edit_recipe(recipe_id):
 
 @app.route("/update_recipe/<recipe_id>", methods=["POST"])
 def update_recipe(recipe_id):
+    """takes the parameter id passed in the route,gets the recipe collection
+    from mongodb and updates the document accordingly and redirect to home page"""
     recipe = mongo.db.recipe_collections
     recipe.update({"_id": ObjectId(recipe_id)},
                   {'recipe_title': request.form.get('recipe_title'),
@@ -128,44 +153,59 @@ def update_recipe(recipe_id):
 
 @app.route("/delete_recipe/<recipe_id>", methods=["POST", "GET"])
 def delete_recipe(recipe_id):
+    """takes the parameter id passed in the route and checks the recipe
+    collection in mongodb,if the recipe owner name in the collection
+    is the same as the username in session then it will delete the 
+    data from mongodb else it will redirect to home page and flash a message"""
     recipes = mongo.db.recipe_collections.find_one(
         {"_id": ObjectId(recipe_id)})
     if recipes['recipe_owner'] == session["user"]:
         mongo.db.recipe_collections.remove({"_id": ObjectId(recipe_id)})
-    return redirect(url_for("home"))
+        flash("recipe deleted successfullly")
+        return redirect(url_for("home"))
+    else:
+        flash("changes can only be done by recipe owners:")
+        return redirect(url_for("home"))
 
 
 @app.route("/search", methods=["GET"])
 def search():
+    """takes in the text from the search input form and checks the recipe
+    collection in mongodb for realted data,returns the value and renders
+    search page"""
     search = request.args.get('search')
-    recipes = mongo.db.recipe_collections.find({"$text": {"$search": search}})
-    #if recipes.count():
+    recipes = mongo.db.recipe_collections.find({"$text": {"$search": search}}) 
     return render_template("search.html", recipes=recipes)
-    #else:
-        #return redirect(url_for("home"))
+ 
 
 
 @app.route("/desert")
 def desert():
+    """gets the recipe collection from mongodb and renders desert page"""
     recipes = mongo.db.recipe_collections.find()
     return render_template("desert.html", recipes=recipes)
 
 
 @app.route("/main_dishes")
 def main_dishes():
+    """gets the recipe collection from mongodb and renders main dishes page"""
     recipes = mongo.db.recipe_collections.find()
     return render_template("main_dishes.html", recipes=recipes)
 
 
 @app.route("/drinks")
 def drinks():
+    """gets the recipe collection from mongodb and renders drinks page"""
     recipes = mongo.db.recipe_collections.find()
     return render_template("drinks.html", recipes=recipes)
 
 
 @app.route("/cookware")
 def cookware():
+    """renders cookware page"""
     return render_template("cookware.html")
+
+
 
 
 if __name__ == '__main__':

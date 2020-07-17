@@ -23,7 +23,7 @@
           <div class="col-lg-9">  
             <div class="row">
         {%if not recipes.count()%} 
-          <h1>Result not found</h1>
+          <h1 id="search_heading" class="text-center">Result not found</h1>
         {%else%}
             {% for recipe in recipes%} 
               <div class="col-lg-4 col-md-6 mb-4"> 

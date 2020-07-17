@@ -19,31 +19,31 @@
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-dark bg_cl fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="{{url_for('home')}}">Susu's online-cookbook</a>
+          <a class="navbar-brand hvr-underline-reveal" href="{{url_for('home')}}">Susu's online-cookbook</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('home')}}">Home
+                <a class="nav-link hvr-underline-reveal" href="{{url_for('home')}}">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{url_for('login_page')}}">Add Recipe</a>
+                <a class="nav-link hvr-underline-reveal" href="{{url_for('login_page')}}">Add Recipe</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{url_for('cookware')}}">Cookware</a>
+                <a class="nav-link hvr-underline-reveal" href="{{url_for('cookware')}}">Cookware</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link hvr-underline-reveal" href="{{url_for('register')}}">Signup</a>
               </li>
             </ul>
           </div>
           <form method="GET" action="{{url_for('search')}}" class="form-inline my-2 my-lg-0" >
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" required />
-            <button id="search_btn" class="btn  my-2 my-sm-0" type="submit">
+            <button id="search_btn" class="btn  my-2 my-sm-0 hvr-underline-reveal" type="submit">
               Search
             </button>
           </form>
@@ -87,6 +87,7 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
       <script>
+      //summernote API
         $(document).ready(function () {
           $(".summernote").summernote();
         });

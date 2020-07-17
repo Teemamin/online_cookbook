@@ -14,6 +14,49 @@ body {
 #form-bg {
   background-image: url("/static/img/breadcumb3.jpg");
 }
+#search_heading{
+    margin: 10px;
+}
+.bg-overlay {
+  position: relative;
+  z-index: 2;
+  background-position: center center;
+  background-size: cover; }
+  .bg-overlay::after {
+    background-color: rgba(10, 12, 18, 0.55);
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: ""; 
+    }
+.bg-img {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat; 
+  }
+
+.breadcumb-area {
+  position: relative;
+  z-index: 10;
+  width: 92%;
+  height: 190px;
+  margin-left: 4%;
+  margin-right: 4%; }
+  @media only screen and (max-width: 767px) {
+    .breadcumb-area {
+      height: 120px; } }
+  .breadcumb-area .breadcumb-text h2 {
+    font-size: 30px;
+    margin-bottom: 0;
+    color: #ffffff; }
+    @media only screen and (max-width: 767px) {
+      .breadcumb-area .breadcumb-text h2 {
+        font-size: 24px; } }
+
+
 
 .bg_cl {
   background-color: #292c33;
