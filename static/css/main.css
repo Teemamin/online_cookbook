@@ -4,9 +4,22 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
 }
+
 .recipe_image {
   max-height: 700px;
 }
+@media screen and (max-width: 600px) {
+  .recipe_image {
+   
+    width: 100%;
+    border: none;
+    padding: 1px;
+    margin-bottom: 3px;
+    vertical-align: middle;
+  }
+}
+
+
 .custom-select {
   font-size: 15px;
   margin-top: 5px;
@@ -122,6 +135,8 @@ a.contact-link :hover{
     margin: 20px;
 
  }
+
+
  
  .social-heading{
      margin-left: 10%;
