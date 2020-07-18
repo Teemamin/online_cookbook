@@ -11,11 +11,10 @@ body {
 @media screen and (max-width: 700px) {
   .recipe_image {
    
-    width: 100%;
+    width: 90%;
     border: none;
     padding: 1px;
-    margin-bottom: 3px;
-    vertical-align: middle;
+    margin-bottom: 3px; 
   }
 }
 
