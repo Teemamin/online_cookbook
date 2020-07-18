@@ -10,8 +10,10 @@
                         <a href="{{url_for('drinks')}}" class="list-group-item">Drinks</a>
                     </div> 
                 </div>
-                <div class="col-md-5 col-sm-10">
-                        <img class="recipe_image " src="{{recipes.recipe_image|safe}}" alt="recipe image"> 
+                <div class="col-lg-5">
+                    <div class="receipe-slider owl-carousel">
+                        <img class="recipe_image img-thumbnail" src="{{recipes.recipe_image|safe}}" alt="recipe image">
+                    </div>  
                 </div>
                 <div class="col-lg-3">
     

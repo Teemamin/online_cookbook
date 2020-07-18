@@ -8,15 +8,7 @@ body {
 .recipe_image {
   max-height: 700px;
 }
-@media screen and (max-width: 700px) {
-  .recipe_image {
-   
-    width: 90%;
-    border: none;
-    padding: 1px;
-    margin-bottom: 3px; 
-  }
-}
+ 
 
 
 .custom-select {
