@@ -19,9 +19,10 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route("/home")
 def home():
-    """renders home page and gets all the recipe collection from mongodb""" 
-    recipes=mongo.db.recipe_collections.aggregate([{'$sort':{'date_created':-1}}])
-    return render_template("index.html", recipes = recipes) 
+    """renders home page and gets all the recipe collection from mongodb"""
+    recipes = mongo.db.recipe_collections.aggregate(
+        [{'$sort': {'date_created': -1}}])
+    return render_template("index.html", recipes=recipes)
 
 
 @app.route("/login_page")
@@ -174,9 +175,8 @@ def search():
     collection in mongodb for realted data,returns the value and renders
     search page"""
     search = request.args.get('search')
-    recipes = mongo.db.recipe_collections.find({"$text": {"$search": search}}) 
+    recipes = mongo.db.recipe_collections.find({"$text": {"$search": search}})
     return render_template("search.html", recipes=recipes)
- 
 
 
 @app.route("/desert")
@@ -206,6 +206,33 @@ def cookware():
     return render_template("cookware.html")
 
 
+@app.route("/stats")
+def stats():
+    """gets recipe collection from mongodb,first it groups by recipe owner, count 
+    and sort and does the same process for category name and assigns it to a var
+    to be used in the frontend. lastly it renders the stats page"""
+    recipes = mongo.db.recipe_collections.aggregate([
+        {"$group": {
+            "_id": "$recipe_owner",
+            "count": {"$sum": 1}
+        }
+        },
+        {"$sort": {
+            "_id": 1
+        }}
+    ])
+
+    categories = mongo.db.recipe_collections.aggregate([
+        {"$group": {
+            "_id": "$category_name",
+            "count": {"$sum": 1}
+        }
+        },
+        {"$sort": {
+            "_id": 1
+        }}
+    ])
+    return render_template("stats.html", owners=recipes, category=categories)
 
 
 if __name__ == '__main__':

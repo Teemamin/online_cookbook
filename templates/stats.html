@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block content %}
+  
+ <table class="table">
+  <thead class="bg_cl">
+    <tr>
+      <th scope="col">Recipe contributors</th>
+      <th scope="col"># of Recipe contributed</th>
+    </tr>
+  </thead>
+ {% for owner in owners%}
+  <tbody>
+    <tr>
+      <td>{{owner._id}}</td>
+      <td>{{owner.count}}</td>
+    </tr>
+  </tbody>
+{% endfor %}
+</table>
+
+<table class="table">
+  <thead class="bg_cl">
+    <tr>
+      <th scope="col">Categories</th>
+      <th scope="col"># of Recipes</th>
+    </tr>
+  </thead>
+ {% for cat in category%}
+  <tbody>
+    <tr>
+      <td>{{cat._id}}</td>
+      <td>{{cat.count}}</td>
+    </tr>
+  </tbody>
+{% endfor %}
+</table>
+
+   
+  
+  
+
+{% endblock %}
