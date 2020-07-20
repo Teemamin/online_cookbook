@@ -42,7 +42,8 @@ def login():
         {"recipe_owner_name": request.form["recipe_owner"]})
     if login_user:
         session["user"] = request.form["recipe_owner"]
-        return redirect(url_for("addrecipe"))
+        flash("successfully logged in")
+        return redirect(url_for("home"))
     flash("registration required")
     return redirect(url_for("register"))
 
@@ -57,7 +58,7 @@ def register():
         existing_user = users.find_one(
             {"recipe_owner_name": request.form["recipe_owner"]})
         if existing_user is None:
-            users.insert({"recipe_owner_name": request.form["recipe_owner"]})
+            users.insert({"recipe_owner_name": request.form["recipe_owner"].lower()})
             session["user"] = request.form["recipe_owner"]
             flash("successfully registered")
             return redirect(url_for("home"))
@@ -142,6 +143,9 @@ def update_recipe(recipe_id):
     recipe.update({"_id": ObjectId(recipe_id)},
                   {'recipe_title': request.form.get('recipe_title'),
                    'category_name': request.form.get('category_name'),
+                   'prep_time': request.form.get('prep_time'),
+                   'cook_time': request.form.get('cook_time'),
+                   'servings': request.form.get('servings'),
                    'recipe_owner': session["user"],
                    'description': request.form.get('description'),
                    'ingredients': request.form.get('ingredients'),

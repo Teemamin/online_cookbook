@@ -60,8 +60,21 @@ body {
       .breadcumb-area .breadcumb-text h2 {
         font-size: 24px; } }
 
-
-
+.recipe-btn{
+    width: 65px;
+    margin: 5px;
+}
+ .recipe-btn-edit{
+     color: whitesmoke;
+     background: #00006b;
+ }
+ .recipe-btn-delete{
+     color: whitesmoke;
+     background: #b50000;
+ }
+ .card-img-top{
+     min-height: 500px;
+ }
 .bg_cl {
   background-color: #292c33;
   color: whitesmoke;

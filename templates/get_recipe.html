@@ -13,6 +13,7 @@
                 <div class="col-lg-5">
                     <div class="receipe-slider owl-carousel">
                         <img class="recipe_image img-thumbnail" src="{{recipes.recipe_image|safe}}" alt="recipe image">
+                         
                     </div>  
                 </div>
                 <div class="col-lg-3">
@@ -27,19 +28,26 @@
         </div> 
        <div class="container"> 
             <div class="receipe-content-area">
-                <div class="row">     
+               <!--- <div class="row">     
                     <div class="col-8">
                         <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn bg_cl">edit</a>
                     </div>
                     <div class="col-3">
                         <a href="javascript:void(0)" onclick="check('{{url_for('delete_recipe', recipe_id=recipes._id)}}')" class="btn bg_cl">delete</a>
                    </div>
+                -->   
               </div>
             <div class="container"> 
                 <div class="row">
                     <div class="col-12 col-md-8">
                         <div class="receipe-headline my-5">
-                            <span></span>
+                        {% if 'user' not in session %}
+                            <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn  recipe-btn recipe-btn-edit" style="display:none">edit</a>
+                            <a href="javascript:void(0)" onclick="check('{{url_for('delete_recipe', recipe_id=recipes._id)}}')" class="btn recipe-btn recipe-btn-delete" style="display:none">delete</a>
+                        {% else %}
+                           <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn  recipe-btn recipe-btn-edit">edit</a>
+                            <a href="javascript:void(0)" onclick="check('{{url_for('delete_recipe', recipe_id=recipes._id)}}')" class="btn recipe-btn recipe-btn-delete">delete</a>
+                        {% endif %}    
                             <h2>{{recipes.recipe_title|safe}}</h2>  
                         </div>
                     </div> 
