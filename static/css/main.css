@@ -72,9 +72,9 @@ body {
      color: whitesmoke;
      background: #b50000;
  }
- .card-img-top{
+ /**.card-img-top{
      min-height: 500px;
- }
+ }**/
 .bg_cl {
   background-color: #292c33;
   color: whitesmoke;

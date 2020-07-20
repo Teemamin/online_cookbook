@@ -44,7 +44,7 @@ def login():
         session["user"] = request.form["recipe_owner"]
         flash("successfully logged in")
         return redirect(url_for("home"))
-    flash("registration required")
+    flash("registration required : Now you can add new recipes")
     return redirect(url_for("register"))
 
 
@@ -71,9 +71,10 @@ def register():
 def logout():
     if "user" in session:
         user = session["user"]
-        flash(f"you have been loggedout, {user}", "info")
+        flash(f"you have been logged out, {user}", "info")
     session.pop("user", None)
-    return redirect(url_for("login_page"))
+    flash("successfully logged out")
+    return redirect(url_for("home"))
 
 
 @app.route("/addrecipe")
@@ -153,7 +154,7 @@ def update_recipe(recipe_id):
                    'recipe_image': request.form.get('recipe_image'),
                    'date_created': datetime.now()
                    })
-    return redirect(url_for("home"))
+    return redirect(url_for("get_recipe",recipe_id= recipe_id))
 
 
 @app.route("/delete_recipe/<recipe_id>", methods=["POST", "GET"])
