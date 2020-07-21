@@ -8,9 +8,13 @@ body {
 .recipe_image {
   max-height: 700px;
 }
+  
+/**@media screen and (max-width: 600px) {
+  .loggin-link {
+    margin-left: 25px; 
+  }
+} **/ 
  
-
-
 .custom-select {
   font-size: 15px;
   margin-top: 5px;
