@@ -31,6 +31,7 @@ for more.
 * user: food blogger: i am a food blogger: with passion for sharing my craft and experience with the world, this platform is an additional
 avenue of expanding my audience.
 #### Wireframes: 
+* To view Wireframes doc [click me](https://github.com/Teemamin/online_cookbook/tree/9c3c2b6cdfac5a91f097473a4b9e76e3a9d8dca0/wireframes).
 
 
 ## Features
@@ -88,7 +89,7 @@ In the future release ideas:
 * I used github for its repo and version control of the project  [Github](https://github.com/).
  
 ## Testing
- * To view Test doc[click me](https://github.com/Teemamin/online_cookbook/blob/master/Test.md).
+ * To view Test doc [click me](https://github.com/Teemamin/online_cookbook/blob/master/Test.md).
 ## Deployment
 * Project Deployment:
 #### Deploying to Heroku:

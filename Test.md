@@ -75,4 +75,4 @@ but i have fixed it.
 ### functionality Tests:
 * manually tested all the site links to ensure they all work
 * Python Automated test was carried out using pylint
-* ![return to previous doc](https://github.com/Teemamin/online_cookbook/blob/master/README.md)
+* [return to previous doc](https://github.com/Teemamin/online_cookbook/blob/master/README.md)
