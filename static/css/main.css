@@ -4,27 +4,29 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
 }
-
+/**aligns the recipe images on the page**/
 .recipe_image {
   max-height: 700px;
 }
-  
-/**@media screen and (max-width: 600px) {
+ /**ensures that login/logout links is nicely placed at smaller break points**/ 
+@media screen and (max-width: 600px) {
   .loggin-link {
     margin-left: 25px; 
   }
-} **/ 
+}  
  
 .custom-select {
   font-size: 15px;
   margin-top: 5px;
 }
-#form-bg {
-  background-image: url("/static/img/breadcumb3.jpg");
-}
 #search_heading{
     margin: 10px;
 }
+/**form styles**/
+#form-bg {
+  background-image: url("/static/img/breadcumb3.jpg");
+}
+
 .bg-overlay {
   position: relative;
   z-index: 2;
@@ -68,6 +70,7 @@ body {
     width: 65px;
     margin: 5px;
 }
+/**form styles end**/
  .recipe-btn-edit{
      color: whitesmoke;
      background: #00006b;
@@ -76,12 +79,13 @@ body {
      color: whitesmoke;
      background: #b50000;
  }
- /**.card-img-top{
-     min-height: 500px;
- }**/
+/**page background colour**/
 .bg_cl {
   background-color: #292c33;
-  color: whitesmoke;
+  color: whitesmoke !important;
+}
+.bg_cl a:visited{
+    color: white;
 }
 a {
   color: darkslateblue;
@@ -89,7 +93,15 @@ a {
 .btn:hover {
   color: wheat!important;
 }
-
+.cardImage{
+    height: 70%;
+    overflow-x: hidden;
+}
+.mycard_image{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 #search_btn{
     color: antiquewhite;
 }
@@ -99,6 +111,7 @@ a {
 #height-con{
     min-height: 670px;
 }
+/**footer styles */
 #footer {
   margin-top: 10px;
 }
@@ -144,12 +157,11 @@ a.contact-link :hover{
 
  }
 
-
- 
+  
  .social-heading{
      margin-left: 10%;
  }
-
+/**footer styles end**/
  
 
 

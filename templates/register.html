@@ -1,9 +1,14 @@
 {% extends 'base.html' %} {% block content %}
   
-    {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages(category_filter=['success']) %}
              {% if messages %}
                 {%for msg in messages%}
-                   <p>{{msg}}</p>
+                   <div class="alert alert-success alert-dismissible mb-3" role="alert">
+                        <span>{{msg}}</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                   </div>
                 {% endfor%}
               {% endif %}
         {% endwith %}
@@ -12,9 +17,12 @@
     <div class="form-group">
         <label for="recipe_owner">signup</label>
         <input type="text" class="form-control" id="recipe_owner" name="recipe_owner" aria-describedby="">
-            <small id="emailHelp" class="form-text text-muted">already registered? <a href="{{url_for('login')}}">login</a></small>
+            <small id="emailHelp" class="form-text text-muted">already registered? <a href="{{url_for('login_page')}}">login</a></small>
     </div> 
   <button type="submit" class="btn bg_cl">Register</button>
  </form>
+  <script>
+   $('.alert').alert()
+ </script>
 {% endblock %}
 

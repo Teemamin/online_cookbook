@@ -13,7 +13,7 @@ field,and a small note that indicates to the user to either input their username
 redirect the user to a simple registration page for a basic authentication which checks the name inputed against the username collection in
 mongodb, if the username doesn't exist: it will register the user, redirect to the home page and flash "successfully registered: Now you can add new recipes!"
 and if the username already exist: it will redirect the user to the login page and flash "username already exist"
-3. After the user logs in and is in session: the add recipe option in the navigation bar becomes visible and accessible to the user,
+3. After the user logs in and is in session: the add recipe to our collection becomes a click away,
 Add recipe onclick: will redirect a user to a page with form input and summernote wysiwyg API textarea fields for recipe steps and instuction collection, all input fields must be
 filled in order to successfully add a recipe.
 * upon successful recipe addition: the site will redirect to the home page and flash "recipe added successfully!" and the most recent addition
@@ -25,11 +25,10 @@ shows up at the top of the collections.
 * cookware purchase button onclick: when a user clicks on the purchase button, it opens a new page that takes the user to the brand manufacture's
 page where purchase can be done successfully.
 * Recipe onclick: when a user clicks on a recipe it can go in two directions:
-1. if the user is logged in: Asides from being able to view the recipe instructions and steps 
+1. if the user is logged in: Asides from being able to view the recipe instructions and steps, if the user in session is the recipe owner:
 the edit and delete buttons on the individual recipe page becomes visible: when either buttons are clicked : the backend flask functionality
-checks to see if the person in session is the owner of the recipe and if so: access is granted, which allows the user to either edit the
-recipe content or delete their recipes, else if the user attempting to make the changes is not the recipe owner: it will redirect to home page
-and flash "changes can only be made by recipe owner"
+runs a check and if the user in session is the owner of the recipe: access is granted, which allows the user to either edit the
+recipe content or delete their recipes.
 2. if the user is not logged in: they can view our recipe collections, search recipe contents but cannot add or make any changes.
 * Edit and delete functionalities:
 1. Edit: if a user clicks on the edit button and access is granted: the site will redirect to a page with pre populated form fields containing
@@ -46,6 +45,12 @@ else if a user clicks cancel instead: it will close the dialogue box.
 
 # Validating the HTML, CSS and JavaScript and Python:
 ### HTML
+* Validated my HTML5 file with  [W3C validator](https://validator.w3.org) : the test did not produce HTML errors, Kindly note:
+the validator highlighted jinja syntax as errors
+### Python:
+* Validated my python file with  [Pylint](https://www.pylint.org/#install) : the test initally produced some warnings: indicating trailing whitespace
+but i have fixed it.
+![python validation](/static/img/python_pylint_test.png)
 
 ### CSS :
 * Validated my css file with  [W3C validator](https://jigsaw.w3.org/css-validator/validator) : the test did not produce any errors
@@ -61,6 +66,13 @@ else if a user clicks cancel instead: it will close the dialogue box.
 * Internet explorer
 ### Design Responsiveness:
 * I tested the site on google dev tool
+![google dev tool](/static/img/dev_img1.png)
+(/static/img/dev_img2.png)
+(/static/img/dev_img3.png)
+(/static/img/dev_img4.png)
+
 * I used a few different mobile devices to see the breakpoints and the way the site responds
 ### functionality Tests:
 * manually tested all the site links to ensure they all work
+* Python Automated test was carried out using pylint
+* ![return to previous doc](https://github.com/Teemamin/online_cookbook/blob/master/README.md)

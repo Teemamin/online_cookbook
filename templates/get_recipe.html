@@ -1,13 +1,12 @@
 {% extends 'base.html' %} {% block content %}
      <div class="receipe-post-area">
-       <!-- Receipe Slider --> 
         <div class="container">
             <div class="row">
                 <div class="col-lg-3"> 
                     <div class="list-group">
-                        <a href="{{url_for('desert')}}" class="list-group-item">Deserts</a>
-                        <a href="{{url_for('main_dishes')}}" class="list-group-item">Main Dishes</a>
-                        <a href="{{url_for('drinks')}}" class="list-group-item">Drinks</a>
+                        <a href="{{url_for('get_recipes_by_category',category_name='Deserts')}}" class="list-group-item">Deserts</a>
+                        <a href="{{url_for('get_recipes_by_category',category_name='Main Dishes')}}" class="list-group-item">Main Dishes</a>
+                        <a href="{{url_for('get_recipes_by_category',category_name='Drinks')}}" class="list-group-item">Drinks</a>
                     </div> 
                 </div>
                 <div class="col-lg-5">
@@ -27,21 +26,12 @@
             </div>
         </div> 
        <div class="container"> 
-            <div class="receipe-content-area">
-               <!--- <div class="row">     
-                    <div class="col-8">
-                        <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn bg_cl">edit</a>
-                    </div>
-                    <div class="col-3">
-                        <a href="javascript:void(0)" onclick="check('{{url_for('delete_recipe', recipe_id=recipes._id)}}')" class="btn bg_cl">delete</a>
-                   </div>
-                -->   
-              </div>
+            <div class="receipe-content-area"> 
             <div class="container"> 
                 <div class="row">
                     <div class="col-12 col-md-8">
                         <div class="receipe-headline my-5">
-                        {% if 'user' not in session %}
+                        {% if session['user'] != recipes.recipe_owner %}
                             <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn  recipe-btn recipe-btn-edit" style="display:none">edit</a>
                             <a href="javascript:void(0)" onclick="check('{{url_for('delete_recipe', recipe_id=recipes._id)}}')" class="btn recipe-btn recipe-btn-delete" style="display:none">delete</a>
                         {% else %}

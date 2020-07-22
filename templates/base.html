@@ -29,16 +29,10 @@
                 <a class="nav-link hvr-underline-reveal" href="{{url_for('home')}}">Home
                   <span class="sr-only">(current)</span>
                 </a>
-              </li>
-           {% if 'user' not in session %}
-              <li class="nav-item" style="display:none">
-                <a class="nav-link hvr-underline-reveal" href="{{url_for('addrecipe')}}">Add Recipe</a>
-              </li>
-            {% else %}
+              </li> 
             <li class="nav-item">
                 <a class="nav-link hvr-underline-reveal" href="{{url_for('addrecipe')}}">Add Recipe</a>
-              </li>
-            {% endif %}
+            </li> 
               <li class="nav-item">
                 <a class="nav-link hvr-underline-reveal" href="{{url_for('cookware')}}">Cookware</a>
               </li>
@@ -57,12 +51,12 @@
      
         <ul class="navbar-nav mr-auto ">
         {% if 'user' not in session %}
-            <li class="nav-item active">
+            <li class="nav-item active loggin-link">
                 <a class="nav-link hvr-underline-reveal" href="{{url_for('login_page')}}">Login
                 </a>
             </li>
         {% else %}
-        <li class="nav-item active">
+        <li class="nav-item active loggin-link">
             <a class="nav-link hvr-underline-reveal" href="{{url_for('logout')}}">Logout
             </a>
         </li>

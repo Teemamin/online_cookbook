@@ -1,21 +1,13 @@
 {% extends 'base.html' %} {% block content %}
-<!-- Page Content -->
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-{%for msg in messages%}
-<p>{{msg}}</p>
-{% endfor%}
-{% endif %}
-{% endwith %}
- 
+<!-- Page Content --> 
  <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
 
 			<div class="list-group">
-				<a href="{{url_for('desert')}}" class="list-group-item">Deserts</a>
-				<a href="{{url_for('main_dishes')}}" class="list-group-item">Main Dishes</a>
-				<a href="{{url_for('drinks')}}" class="list-group-item">Drinks</a>
+		        <a href="{{url_for('get_recipes_by_category',category_name='Deserts')}}" class="list-group-item">Deserts</a>
+                <a href="{{url_for('get_recipes_by_category',category_name='Main Dishes')}}" class="list-group-item">Main Dishes</a>
+                <a href="{{url_for('get_recipes_by_category',category_name='Drinks')}}" class="list-group-item">Drinks</a>
 			</div> 
 		</div>
 		<!-- /.col-lg-3 -->

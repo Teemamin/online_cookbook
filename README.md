@@ -9,7 +9,7 @@ if need be and also grants them access to other users recipes and process to mak
 
 with no prior experience necessary. The site provides several ways to access its recipe Contents, shows statistics on 
 
-recipe contributors and content category whilst also providing its users with easy access to our suggested, tried and tested cookware brands
+recipe contributors, content category whilst also providing its users with easy access to our suggested, tried and tested cookware brands
 ### User Stories :
 The user stories below inspired my design for the project :
 #### Project owner:
@@ -17,11 +17,11 @@ The user stories below inspired my design for the project :
 in hopes of creating a community for foodies, where people come to share their love for food, share family recipes, cooking tips whilst
 also promoting my recommended cookware and future possiblilities of food blog & hard copy cookbooks.
 #### First Time user:
-* user x: a user with no prior experience cooking: our step by step recipe collections and yummy food images takes the user through the journey 
+* user : a user with no prior experience cooking: our step by step recipe collections and yummy food images takes the user through the journey 
 of making their personalized dish experience.
-* user Y: a user that has some experience cooking but isn't sure what they are looking for: our enticing category collections and search
+* user : a user that has some experience cooking but isn't sure what they are looking for: our enticing category collections and search
 option helps make does descions alot easier.
-* user Z: the ability to share your own recipes with the community: as a user more especially if you love food like i do, will
+* user : the ability to share your own recipes with the community: as a user more especially if you love food like i do, will
 surely be a return user given the ability to share your craft with others using our add recipe section.
 #### Return users:
 * user: i am a mum that loves to cook for my family: i have tired the recipes and my family loved every bit of it, so i will love to 
@@ -42,16 +42,18 @@ This feature allows users to add and share their recipe contents with other user
 #### Read :
 A user can browse the site contents and get it's recipes and process.
 #### Update Recipe :
-The edit feature allows the recipe owner to make changes to their contents and update the changes. Changes can only be done by recipe owner.
+The edit feature allows the recipe owner to make changes to their contents and update the changes. Changes can only be done by recipe owner,
+Note: edit button is only visible to the user that contributed the recipe
 #### Delete:
-The delete funtion allows recipe owners to delete their contents, it asks for user confirmation before deleting the data.
+The delete function allows recipe owners to delete their contents, it asks for user confirmation before deleting the data,
+Note: delete button is only visible to the user that contributed the recipe
 #### Statistics :
 The site provides a statistics table which displays contents contributors, number of recipes contributed and a category table which displays 
 recipe contents quantity based on its category.
 #### Search :
 The site has a search functionality that allows its users to easliy search for contents based on their names, ingredients or keywords.
-#### login/signup :
-THe site provides a login page for returning users and a register page for new users.
+#### login/logout and signup :
+THe site provides a login/logout option page interchangeably for returning users and a register page for new users.
 #### Cookware Brand :
 The site provides easy access to our trusted brands of cookware.
 #### Contact:
@@ -84,10 +86,9 @@ In the future release ideas:
 * Ian Lunn CSS Hover cdn was used for the site navigations  [ian lunn](https://ianlunn.github.io/Hover/).
 * I used gitpod's development environment to write my code for the project  [Gitpod](https://www.gitpod.io/).
 * I used github for its repo and version control of the project  [Github](https://github.com/).
-
-
+ 
 ## Testing
-
+ * To view Test doc[click me](https://github.com/Teemamin/online_cookbook/blob/master/Test.md).
 ## Deployment
 * Project Deployment:
 #### Deploying to Heroku:
@@ -122,13 +123,14 @@ Should anyone be intrested in making future enhancements to this project, you ca
 4. for further info on github cloning : [Github](https://docs.github.com/en/enterprise/2.13/user/articles/cloning-a-repository).
 
 ## Credits
-
+* Got some of my inspiration from my tutorials and classes with code Institute.
 ## Content
 * I got some of my recipes from [Github](https://www.allrecipes.com/).
 
 ## Media
 * Some of the photos used in this site were obtained from :
 1. [Unsplash](https://unsplash.com/).
+2. [Pixels](https://www.pexels.com/).
 
 ## Acknowledgements
 * I derived my inspiration for this project through my experience with the covid-19 lockdown, where i found myself browsing through multiple
