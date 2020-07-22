@@ -67,9 +67,9 @@ but i have fixed it.
 ### Design Responsiveness:
 * I tested the site on google dev tool
 ![google dev tool](/static/img/dev_img1.png)
-(/static/img/dev_img2.png)
-(/static/img/dev_img3.png)
-(/static/img/dev_img4.png)
+![google dev tool](/static/img/dev_img3.png)
+![displaying edit and delete button](/static/img/btn_display.png)
+
 
 * I used a few different mobile devices to see the breakpoints and the way the site responds
 ### functionality Tests:
