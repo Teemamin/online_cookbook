@@ -26,15 +26,14 @@ shows up at the top of the collections.
 page where purchase can be done successfully.
 * Recipe onclick: when a user clicks on a recipe it can go in two directions:
 1. if the user is logged in: Asides from being able to view the recipe instructions and steps, if the user in session is the recipe owner:
-the edit and delete buttons on the individual recipe page becomes visible: when either buttons are clicked : the backend flask functionality
+the edit and delete buttons on the contributor's recipe pages become visible: when either buttons are clicked : the backend flask functionality
 runs a check and if the user in session is the owner of the recipe: access is granted, which allows the user to either edit the
 recipe content or delete their recipes.
 2. if the user is not logged in: they can view our recipe collections, search recipe contents but cannot add or make any changes.
 * Edit and delete functionalities:
 1. Edit: if a user clicks on the edit button and access is granted: the site will redirect to a page with pre populated form fields containing
-the previously added recipe data by the user making the edit after recipe is updated the site redirects back to the recipe page of the particular
-recipe edited
-2. Delete: if a user clicks on the delete button and access is granted: a dialogue box will pop up asking "are you sure you want to delete"
+the previously added recipe data by the author. After the recipe is updated, the site redirects back to the recipe's page.
+2. Delete: if a user clicks on the delete button and access is granted: a dialogue box will pop up asking "are you sure you want to delete?"
 if a user click ok: recipe will be deleted and the site will redirect to the home page and flash "recipe deleted successfully!"
 else if a user clicks cancel instead: it will close the dialogue box.
 *Category selection:
